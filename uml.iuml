@@ -1,0 +1,106 @@
+@startuml
+scale 3
+abstract Person{
+    -name: string
+    -address: string
+    -age: int
+    +string getName()
+    +string getAddress()
+    +int getAge()
+    +void setName()
+    +void setAddress()
+    +void setAge()
+    +string toString()
+}
+class Employee{
+    -id: string
+    -jobDesc: string
+    -salary: int
+    -placement: MinSalary
+    +string getId()
+    +string getJobDesc()
+    +int getSalary()
+    +MinSalary getPlacement()
+    +void setId()
+    +void setJobDesc()
+    +void setSalary()
+    +void setPlacement()
+    +void calculateSalary()
+    +void generateId()
+    +string toString()
+
+}
+class Analyst{
+    -allowance: int
+    +int getAllowance()
+    +void setAllowance()
+    +void calculateAllowance()
+    +void calculateSalary()
+    +void generateId()
+    +string toString()
+}
+class Programmer{
+    -progLanguage: string
+    -experience: int
+    -allowance: int
+    +string getProgLanguage()
+    +int getExperience()
+    +int getAllowance()
+    +void setAllowance()
+    +void calculateAllowance()
+    +void calculateSalary()
+    +void generateId()
+    +string toString()
+}
+class ProjectLeader{
+    -totalProject: int
+    -allowance: int
+    +int getTotalProject()
+    +int getAllowance()
+    +void setTotalProject()
+    +void setAllowance()
+    +void calculateAllowance()
+    +void calculateSalary()
+    +void generateId()
+    +string toString()
+
+}
+
+class MinSalary{
+    -city: string
+    -salary: int
+    +string getCity()
+    +int getSalary()
+    +void setCity()
+    +void setSalary()
+    +string toString()
+}
+
+interface IEmployee{
+    +int salary()
+    +void setSalary()
+    +void calculateSalary()
+}
+interface IEmployeeWithAllowance{
+    +int getAllowance()
+    +void calculateAllowance()
+}
+interface IMember{
+    +void generateId()
+}
+interface IMenuAction{
+    +void printHeader()
+    +void printBody()
+}
+IEmployee <|-- IEmployeeWithAllowance
+Person <|-- Employee
+IMember <|-- Employee
+IEmployee <|-- Employee
+Employee <|-- Analyst
+IEmployeeWithAllowance <|-- Analyst
+Employee <|-- Programmer
+IEmployeeWithAllowance <|-- Programmer
+Employee <|-- ProjectLeader
+IEmployeeWithAllowance <|-- ProjectLeader
+
+@enduml
